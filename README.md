@@ -6,7 +6,7 @@ Add a 1-2 line summary of your project here.
 
 ## Important Links
 
-| [Timesheet](https://google.com) | [Slack channel](https://google.com) | [Project report](https://google.com) |
+| [Timesheet]([https://google.com](https://docs.google.com/spreadsheets/d/11Qg8WJvOcKJIPdgjZsNilkIj_YgUVarauyfibqn2Qw4/edit?usp=sharing)) | [Slack channel]([https://google.com](https://app.slack.com/client/T05JYJAF22G/C05TBD6P5MK)) | [Project report](https://google.com) |
 |-----------|---------------|-------------------------|
 
 
