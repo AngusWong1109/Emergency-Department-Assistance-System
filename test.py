@@ -1,3 +1,5 @@
+import csv
+
 def identify_tests (object):
     All_entry = []
     for i in range(len(object)):
@@ -13,5 +15,7 @@ def identify_tests (object):
     
 
     All_entry.append(Test_list)
-        
 
+    with open('Results.csv', 'w', newline='') as file:
+        writer = csv.writer(file)
+        writer.writerows(All_entry)
