@@ -3,15 +3,35 @@ import csv
 def identify_tests (object):
     All_entry = []
     for i in range(len(object)):
+        
         Test_list = [str(i)]
-        if object[i].chestpain > 2:
+
+        # CHECK CHEST PAIN, HEART RATE AND ANGINA IN ONE CONDITION
+        if object[i].chestpain > 2 | object[i].maxheartrate > (220-object[i].age) | object[i].angina == 1:
             Test_list.append(", electrocardiogram (ECG)")
-        if object[i].cholestrol > 240:
+        
+        if object[i].cholesterol > 240:
             Test_list.append(", lipid profile (blood test)")
-        if object[i].maxheartrate > (220-object[i].age):
-            Test_list.append(", electrocardiogram (ECG)")
+        
         if object[i].plasma_glucose > 2:
             Test_list.append(", oral glucose tolerance test (OGTT")
+        
+        if object[i].skin_thickness > 50:
+            Test_list.append(", biopsy, blood test")
+        
+        if object[i].bmi > 30:
+            Test_list.append(", liver function test, thyroid function test")
+            if ", blood test" not in Test_list:
+                Test_list.append(", blood test")
+            if ", electrocardiogram (ECG)" not in Test_list:
+                Test_list.append(", electrocardiogram (ECG)")
+        
+        if object[i].smoking_status != "never smoked":
+            Test_list.append(", spirometry, chest X-ray,")
+        
+        if object[i].hypertension == 1:
+            if ", blood test" not in Test_list:
+                Test_list.append(", blood test")
     
 
     All_entry.append(Test_list)
