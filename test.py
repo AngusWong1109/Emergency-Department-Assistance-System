@@ -32,6 +32,10 @@ def identify_tests (object):
         if object[i].hypertension == 1:
             if ", blood test" not in Test_list:
                 Test_list.append(", blood test")
+
+        if object[i].heartdisease == 1:
+            if ", electrocardiogram (ECG)" not in Test_list:
+                Test_list.append(", electrocardiogram (ECG)")
     
 
     All_entry.append(Test_list)
