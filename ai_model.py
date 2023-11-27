@@ -70,7 +70,7 @@ def predict(model):
     for i in range(len(preds)):
         print(preds[i], test_y[i])
 
-# Predict on data, use this with new data
+# Predict on data, use this once all the patients have been inserted
 def predict_on_data(model, data):
     prediction = model.predict(data)
     prediction = np.argmax(prediction, axis=1)
