@@ -31,17 +31,17 @@ train_x = train_x[:, 1:-1]
 train_y = data[0:train_size]
 train_y = train_y[:, -1]
 
-test_x = data[train_size:train_size+test_size]
-test_x = test_x[:, 1:-1]
-test_y = data[train_size:train_size+test_size]
-test_y = test_y[:, -1]
+# test_x = data[train_size:train_size+test_size]
+# test_x = test_x[:, 1:-1]
+# test_y = data[train_size:train_size+test_size]
+# test_y = test_y[:, -1]
 
 # Create model
 def createModel():
     model = Sequential()
     dropoutConstant = 0.1
     initializer = initializers.RandomNormal(mean=0., stddev=0.01)
-    model.add(Dense(512, input_shape=(16,), activation='relu',
+    model.add(Dense(512, input_shape=shape(train_x[0]), activation='relu',
                 kernel_regularizer='l2', kernel_initializer=initializer))
     model.add(BatchNormalization())
     model.add(Dropout(dropoutConstant))
@@ -62,13 +62,6 @@ def createModel():
                 batch_size=256)
     _, accuracy = model.evaluate(train_x, train_y)
     return model
-
-# Predict on test data
-def predict(model):
-    preds = model.predict(test_x)
-    preds = np.argmax(preds, axis=1)
-    for i in range(len(preds)):
-        print(preds[i], test_y[i])
 
 # Predict on data, use this once all the patients have been inserted
 def predict_on_data(model, data):
