@@ -13,6 +13,8 @@ from tensorflow.python.keras.optimizers import adam_v2
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.callbacks import ReduceLROnPlateau
 
+listOfPatients = []
+
 # Load data from csv file
 data = genfromtxt('patient_priority.csv', delimiter=',',
                   skip_header=1, dtype=None, autostrip=True, encoding=None, missing_values="?", filling_values="0")
@@ -72,6 +74,9 @@ def predict_on_data(model, data):
     prediction = model.predict(data)
     prediction = np.argmax(prediction, axis=1)
     return prediction
+
+def sortList():
+    listOfPatients.sort(key=lambda x: x.triage, reverse=True)
 
 # Machine learning model
 finalModel = createModel()
