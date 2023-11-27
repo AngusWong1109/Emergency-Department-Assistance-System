@@ -1,7 +1,8 @@
 from calendar import c
+from cgi import test
 from tabnanny import verbose
 from matplotlib import axis
-from numpy import genfromtxt
+from numpy import genfromtxt, shape, sort
 import numpy as np
 import tensorflow
 import data_class
@@ -13,11 +14,11 @@ from tensorflow.python.keras.optimizers import adam_v2
 from tensorflow.keras.layers import Dropout
 from tensorflow.keras.callbacks import ReduceLROnPlateau
 
-listOfPatients = []
-
+listOfNumpyPatients = []
+listOfPatientObjects = []
 # Load data from csv file
 data = genfromtxt('patient_priority.csv', delimiter=',',
-                  skip_header=1, dtype=None, autostrip=True, encoding=None, missing_values="?", filling_values="0")
+                  skip_header=1, dtype=None, autostrip=True, encoding=None, missing_values="", filling_values=0)
 data = np.asarray(data.tolist())
 
 # Sizes
@@ -73,11 +74,24 @@ def predict(model):
 def predict_on_data(model, data):
     prediction = model.predict(data)
     prediction = np.argmax(prediction, axis=1)
+    for x in range(len(listOfPatientObjects)):
+        listOfPatientObjects[x].triage = prediction[x]
+    sortList()
     return prediction
 
+# Sort list of patients
 def sortList():
-    listOfPatients.sort(key=lambda x: x.triage, reverse=True)
+    listOfPatientObjects.sort(key=lambda x: x.triage, reverse=True)
+
+# Insert patient into list
+def insertPatient(patient):
+    listOfPatientObjects.append(patient)
+    listOfNumpyPatients.append(patient.to_np_arr())
 
 # Machine learning model
 finalModel = createModel()
-predict(finalModel)
+# patient = data_class.data_class(67, 1, 3, 160, 286, 108, 1, 0, 23, 0, 30.4, 0.319, 1, 0, 0, 0, 0)
+# patient2 = data_class.data_class(68, 1, 3, 160, 186, 108, 1, 0, 23, 0, 30.4, 0.32, 1, 0, 0, 0, 0)
+# insertPatient(patient)
+# insertPatient(patient2)
+predict_on_data(finalModel, np.asarray(listOfNumpyPatients))
