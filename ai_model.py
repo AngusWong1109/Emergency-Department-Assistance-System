@@ -72,13 +72,13 @@ class ai_model:
         return prediction
 
 # Machine learning model example
-ai = ai_model()
-patient = data_class(67, 1, 0, 160, 286, 108, 1, 0, 0, 0, 26.2, 0.313, 0, 0, 0, 0, 0)
-ai.insertPatient(patient)
-patient = data_class(67, 1, 0, 120, 229, 129, 1, 0, 0, 0, 38.5, 0.591, 0, 0, 0, 0, 0)
-ai.insertPatient(patient)
-patient = data_class(37, 1, 0, 130, 250, 187, 0, 0, 0, 0, 25.9, 0.209, 0, 0, 0, 0, 0)
-ai.insertPatient(patient)
-patient = data_class(41, 0, 0, 130, 204, 172, 0, 0, 0, 0, 32.8, 0.334, 0, 0, 0, 0, 0)
-ai.insertPatient(patient)
-print(ai.predict_on_data())
+# ai = ai_model()
+# patient = data_class(67, 1, 0, 160, 286, 108, 1, 0, 0, 0, 26.2, 0.313, 0, 0, 0, 0, 0)
+# ai.insertPatient(patient)
+# patient = data_class(67, 1, 0, 120, 229, 129, 1, 0, 0, 0, 38.5, 0.591, 0, 0, 0, 0, 0)
+# ai.insertPatient(patient)
+# patient = data_class(37, 1, 0, 130, 250, 187, 0, 0, 0, 0, 25.9, 0.209, 0, 0, 0, 0, 0)
+# ai.insertPatient(patient)
+# patient = data_class(41, 0, 0, 130, 204, 172, 0, 0, 0, 0, 32.8, 0.334, 0, 0, 0, 0, 0)
+# ai.insertPatient(patient)
+# print(ai.predict_on_data())
