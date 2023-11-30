@@ -1,4 +1,5 @@
 import PySimpleGUI as sg
+import data_class  # Import your data_class module
 
 PROJECT_NAME = "Project 11"
 ADD_PATIENT = "Add more patient"
@@ -47,7 +48,7 @@ heart_rate_column = [
 ]
 exercise_angina_column = [
     [
-        sg.Text("Gender:"),
+        sg.Text("Exercise Angina:"),
         sg.Radio('True', "RADIO3", default=False, key="-ANGINA_IN-"),
         sg.Radio('False', "RADIO3", default=True, key="-ANGINA_IN-")
     ]
@@ -141,9 +142,57 @@ layout = [
 
 window = sg.Window(PROJECT_NAME, layout)
 
+# List of input field keys to clear
+input_field_keys_to_clear = ["-AGE_IN-", "-GENDER_IN-0", "-GENDER_IN-1",
+                              "-CHEST_PAIN_IN-", "-BLOOD_PRESSURE_IN-",
+                              "-CHOLESTEROL_IN-", "-MAX_HEART_RATE_IN-",
+                              "-ANGINA_IN-0", "-ANGINA_IN-1",
+                              "-PLASMA_GLUCOSE_IN-", "-SKIN_THICKNESS_IN-",
+                              "-INSULIN_IN-", "-BMI_IN-", "-DIABETES_IN-",
+                              "-HYPERTENSION_IN-0", "-HYPERTENSION_IN-1",
+                              "-HEART_DISEASE_IN-0", "-HEART_DISEASE_IN-1",
+                              "-RESIDENCE_IN-0", "-RESIDENCE_IN-1",
+                              "-SMOKING_IN-0", "-SMOKING_IN-1", "-SMOKING_IN-2", "-SMOKING_IN-3"
+                              ]
+
+
+
 while True:
     event, values = window.read()
     if event == CANCEL or event == sg.WIN_CLOSED:
-        exit()
+        break
+    elif event == SUBMIT:
+        
+        # Create an instance of data_class and populate its attributes
+        patient = data_class.data_class(
+            """"
+            age=int(values["-AGE_IN-"]),
+            gender="Male" if values["-GENDER_IN-0"] else "Female",
+            chest_pain=int(values["-CHEST_PAIN_IN-"]),
+            blood_pressure=int(values["-BLOOD_PRESSURE_IN-"]),
+            cholesterol=int(values["-CHOLESTEROL_IN-"]),
+            max_heart_rate=int(values["-MAX_HEART_RATE_IN-"]),
+            exercise_angina=bool(values["-ANGINA_IN-"]),
+            plasma_glucose=int(values["-PLASMA_GLUCOSE_IN-"]),
+            skin_thickness=int(values["-SKIN_THICKNESS_IN-"]),
+            insulin=int(values["-INSULIN_IN-"]),
+            bmi=float(values["-BMI_IN-"]),
+            diabetes_pedigree=float(values["-DIABETES_IN-"]),
+            hypertension=bool(values["-HYPERTENSION_IN-"]),
+            heart_disease=bool(values["-HEART_DISEASE_IN-"]),
+            residence_type="Urban" if values["-RESIDENCE_IN-"] else "Rural",
+            smoking_status="Never smoked" if values["-SMOKING_IN"] else "Unknown" if values["-SMOKING_IN-1"] else
+            "Formerly smoked" if values["-SMOKING_IN-2"] else "Smokes"
+            """
+        )
+
+        # Now you can use the 'patient' object as needed, for example, insert it into your list
+        insertPatient(patient)
+        
+        # Optionally clear the input fields after submission
+        for key in input_field_keys_to_clear:
+            window[key].update("")
+
+        
 
 window.close()
