@@ -113,6 +113,7 @@ smoking_status_column = [
         sg.Radio('Smokes', "RADIO7", default=False, key="-SMOKING_IN_SMOKES-")
     ]
 ]
+
 button_column = [
     [
         sg.Button(ADD_PATIENT),
@@ -160,42 +161,69 @@ input_field_keys_to_clear = ["-AGE_IN-", "-GENDER_IN_MALE-", "-GENDER_IN_FEMALE-
 while True:
     event, values = window.read()
     if event == CANCEL or event == sg.WIN_CLOSED:
-        break
+        break        
+    elif event == SUBMIT:
+        print("Submit pressed")
+        print("will print properties")
     elif event == ADD_PATIENT:
         print("Add more Patient pressed")
-        """""
+
+
         # Create an instance of data_class and populate its attributes
         patient = data_class.data_class(
-            
             age=int(values["-AGE_IN-"]),
-            gender="Male" if values["-GENDER_IN-0"] else "Female",
-            chest_pain=int(values["-CHEST_PAIN_IN-"]),
-            blood_pressure=int(values["-BLOOD_PRESSURE_IN-"]),
-            cholesterol=int(values["-CHOLESTEROL_IN-"]),
-            max_heart_rate=int(values["-MAX_HEART_RATE_IN-"]),
-            exercise_angina=bool(values["-ANGINA_IN-"]),
-            plasma_glucose=int(values["-PLASMA_GLUCOSE_IN-"]),
-            skin_thickness=int(values["-SKIN_THICKNESS_IN-"]),
-            insulin=int(values["-INSULIN_IN-"]),
-            bmi=float(values["-BMI_IN-"]),
-            diabetes_pedigree=float(values["-DIABETES_IN-"]),
-            hypertension=bool(values["-HYPERTENSION_IN-"]),
-            heart_disease=bool(values["-HEART_DISEASE_IN-"]),
-            residence_type="Urban" if values["-RESIDENCE_IN-"] else "Rural",
-            smoking_status="Never smoked" if values["-SMOKING_IN"] else "Unknown" if values["-SMOKING_IN-1"] else
-            "Formerly smoked" if values["-SMOKING_IN-2"] else "Smokes"
-            
-        )
+            gender="Male" if values["-GENDER_IN_MALE-"] else "Female",
+            chest_pain= (
+                1 if values["-CHEST_PAIN_IN_1-"] else
+                2 if values["-CHEST_PAIN_IN_2-"] else
+                3 if values["-CHEST_PAIN_IN_3-"] else
+                4 if values["-CHEST_PAIN_IN_4-"] else
+                0  # You can choose a default value if no radio button is selected
+            ),
+            blood_pressure = int(values["-BLOOD_PRESSURE_IN-"]),
+            cholesterol = int(values["-CHOLESTEROL_IN-"]),
+            max_heart_rate = int(values["-MAX_HEART_RATE_IN-"]),
+            exercise_angina = True if values["-ANGINA_IN_TRUE-"] else False if values["-ANGINA_IN_FALSE-"] else False,
+            plasma_glucose = int(values["-PLASMA_GLUCOSE_IN-"]),
+            skin_thickness = int(values["-SKIN_THICKNESS_IN-"]),
+            insulin = int(values["-INSULIN_IN-"]),
+            bmi = float(values["-BMI_IN-"]),
+            diabetes_pedigree = float(values["-DIABETES_IN-"]),
+            hypertension = True if values["-HYPERTENSION_IN_TRUE-"] else False if values["-HYPERTENSION_IN_FALSE-"] else False,
+            heart_disease=True if values["-HEART_DISEASE_IN_TRUE-"] else False if values["-HEART_DISEASE_IN_FALSE-"] else False,
+            residence_type="Urban" if values["-RESIDENCE_IN_URBAN-"] else "Rural",
+            smoking_status="Never smoked" if values["-SMOKING_IN_NEVER-"] else "Unknown" if values["-SMOKING_IN_UNKNOWN-"] else
+            "Formerly smoked" if values["-SMOKING_IN_FORMELY-"] else "Smokes",
+            triage = 0
+            )
+        
+        # Print all attributes of the patient instance
+        print("Patient attributes:")
+        print(f"Age: {patient.age}")
+        print(f"Gender: {patient.gender}")
+        print(f"Chest Pain: {patient.chest_pain}")
+        print(f"Blood Pressure: {patient.blood_pressure}")
+        print(f"Cholesterol: {patient.cholesterol}")
+        print(f"Max Heart Rate: {patient.max_heart_rate}")
+        print(f"Exercise Angina: {patient.exercise_angina}")
+        print(f"Plasma Glucose: {patient.plasma_glucose}")
+        print(f"Skin Thickness: {patient.skin_thickness}")
+        print(f"Insulin: {patient.insulin}")
+        print(f"BMI: {patient.bmi}")
+        print(f"Diabetes Pedigree: {patient.diabetes_pedigree}")
+        print(f"Hypertension: {patient.hypertension}")
+        print(f"Heart Disease: {patient.heart_disease}")
+        print(f"Residence Type: {patient.residence_type}")
+        print(f"Smoking Status: {patient.smoking_status}")
+        print(f"Triage: {patient.triage}")
 
+        
         # Now you can use the 'patient' object as needed, for example, insert it into your list
         insertPatient(patient)
-        """
+        
         # Optionally clear the input fields after submission
         for key in input_field_keys_to_clear:
             window[key].update("")
-    elif event == SUBMIT:
-        print("Submit pressed")
-
         
 
 window.close()
