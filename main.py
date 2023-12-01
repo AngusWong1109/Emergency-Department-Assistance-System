@@ -1,6 +1,6 @@
 import PySimpleGUI as sg
 import data_class  # Import data class module
-#import ai_model    # Import AI Model
+import ai_model    # Import AI Model
 
 PROJECT_NAME = "Project 11"
 ADD_PATIENT = "Add more patient"
@@ -158,7 +158,7 @@ input_field_keys_to_clear = ["-AGE_IN-", "-GENDER_IN_MALE-", "-GENDER_IN_FEMALE-
                               ]
 
 
-
+ai = ai_model.ai_model()
 while True:
     event, values = window.read()
     if event == CANCEL or event == sg.WIN_CLOSED:
@@ -195,10 +195,10 @@ while True:
         
         # Need to confiure tensorflow and keras
         # Insert the patient into the list in ai_model
-        ai_model.insertPatient(patient)
+        ai.insertPatient(patient)
 
         # Use the created model to predict on data
-        predictions = ai_model.predict_on_data(ai_model.finalModel, ai_model.listOfNumpyPatients)
+        predictions = ai.predict_on_data()
 
         # Print predicted triage values
         print("Predicted Triage Values:", predictions)
@@ -260,7 +260,7 @@ while True:
         
         # Need to confiure tensorflow and keras
         # Now you can use the 'patient' object as needed, for example, insert it into your list
-        ai_model.insertPatient(patient)
+        ai.insertPatient(patient)
         # Need to confiure tensorflow and keras until here
         
         # Optionally clear the input fields after submission
