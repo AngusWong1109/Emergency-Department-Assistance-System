@@ -167,29 +167,23 @@ while True:
         print("Submit pressed")
         # Create an instance of data_class and populate its attributes
         patient = data_class.data_class(
-            age=int(values["-AGE_IN-"]),
-            gender="Male" if values["-GENDER_IN_MALE-"] else "Female",
-            chest_pain= (
-                1 if values["-CHEST_PAIN_IN_1-"] else
-                2 if values["-CHEST_PAIN_IN_2-"] else
-                3 if values["-CHEST_PAIN_IN_3-"] else
-                4 if values["-CHEST_PAIN_IN_4-"] else
-                0  # You can choose a default value if no radio button is selected
-            ),
+            age = int(values["-AGE_IN-"]),
+            gender = 1 if values["-GENDER_IN_MALE-"] else 0,
+            chest_pain = 1 if values["-CHEST_PAIN_IN_1-"] else 2 if values["-CHEST_PAIN_IN_2-"] else 3 if values["-CHEST_PAIN_IN_3-"] else 4 if values["-CHEST_PAIN_IN_4-"] else 0,
             blood_pressure = int(values["-BLOOD_PRESSURE_IN-"]),
             cholesterol = int(values["-CHOLESTEROL_IN-"]),
             max_heart_rate = int(values["-MAX_HEART_RATE_IN-"]),
-            exercise_angina = True if values["-ANGINA_IN_TRUE-"] else False if values["-ANGINA_IN_FALSE-"] else False,
+            exercise_angina = 1 if values["-ANGINA_IN_TRUE-"] else 0 if values["-ANGINA_IN_FALSE-"] else 0,
             plasma_glucose = int(values["-PLASMA_GLUCOSE_IN-"]),
             skin_thickness = int(values["-SKIN_THICKNESS_IN-"]),
             insulin = int(values["-INSULIN_IN-"]),
             bmi = float(values["-BMI_IN-"]),
             diabetes_pedigree = float(values["-DIABETES_IN-"]),
-            hypertension = True if values["-HYPERTENSION_IN_TRUE-"] else False if values["-HYPERTENSION_IN_FALSE-"] else False,
-            heart_disease=True if values["-HEART_DISEASE_IN_TRUE-"] else False if values["-HEART_DISEASE_IN_FALSE-"] else False,
-            residence_type="Urban" if values["-RESIDENCE_IN_URBAN-"] else "Rural",
-            smoking_status="Never smoked" if values["-SMOKING_IN_NEVER-"] else "Unknown" if values["-SMOKING_IN_UNKNOWN-"] else
-            "Formerly smoked" if values["-SMOKING_IN_FORMELY-"] else "Smokes",
+            hypertension = 1 if values["-HYPERTENSION_IN_TRUE-"] else 0 if values["-HYPERTENSION_IN_FALSE-"] else 0,
+            heart_disease= 1 if values["-HEART_DISEASE_IN_TRUE-"] else 0 if values["-HEART_DISEASE_IN_FALSE-"] else 0,
+            residence_type= 0 if values["-RESIDENCE_IN_URBAN-"] else 1,
+            smoking_status= 0 if values["-SMOKING_IN_NEVER-"] else 3 if values["-SMOKING_IN_UNKNOWN-"] else
+            1 if values["-SMOKING_IN_FORMELY-"] else 2,
             triage = 0
             )
         
@@ -210,29 +204,23 @@ while True:
 
         # Create an instance of data_class and populate its attributes
         patient = data_class.data_class(
-            age=int(values["-AGE_IN-"]),
-            gender="Male" if values["-GENDER_IN_MALE-"] else "Female",
-            chest_pain= (
-                1 if values["-CHEST_PAIN_IN_1-"] else
-                2 if values["-CHEST_PAIN_IN_2-"] else
-                3 if values["-CHEST_PAIN_IN_3-"] else
-                4 if values["-CHEST_PAIN_IN_4-"] else
-                0  # You can choose a default value if no radio button is selected
-            ),
+            age = int(values["-AGE_IN-"]),
+            gender = 1 if values["-GENDER_IN_MALE-"] else 0,
+            chest_pain = 1 if values["-CHEST_PAIN_IN_1-"] else 2 if values["-CHEST_PAIN_IN_2-"] else 3 if values["-CHEST_PAIN_IN_3-"] else 4 if values["-CHEST_PAIN_IN_4-"] else 0,
             blood_pressure = int(values["-BLOOD_PRESSURE_IN-"]),
             cholesterol = int(values["-CHOLESTEROL_IN-"]),
             max_heart_rate = int(values["-MAX_HEART_RATE_IN-"]),
-            exercise_angina = True if values["-ANGINA_IN_TRUE-"] else False if values["-ANGINA_IN_FALSE-"] else False,
+            exercise_angina = 1 if values["-ANGINA_IN_TRUE-"] else 0 if values["-ANGINA_IN_FALSE-"] else 0,
             plasma_glucose = int(values["-PLASMA_GLUCOSE_IN-"]),
             skin_thickness = int(values["-SKIN_THICKNESS_IN-"]),
             insulin = int(values["-INSULIN_IN-"]),
             bmi = float(values["-BMI_IN-"]),
             diabetes_pedigree = float(values["-DIABETES_IN-"]),
-            hypertension = True if values["-HYPERTENSION_IN_TRUE-"] else False if values["-HYPERTENSION_IN_FALSE-"] else False,
-            heart_disease=True if values["-HEART_DISEASE_IN_TRUE-"] else False if values["-HEART_DISEASE_IN_FALSE-"] else False,
-            residence_type="Urban" if values["-RESIDENCE_IN_URBAN-"] else "Rural",
-            smoking_status="Never smoked" if values["-SMOKING_IN_NEVER-"] else "Unknown" if values["-SMOKING_IN_UNKNOWN-"] else
-            "Formerly smoked" if values["-SMOKING_IN_FORMELY-"] else "Smokes",
+            hypertension = 1 if values["-HYPERTENSION_IN_TRUE-"] else 0 if values["-HYPERTENSION_IN_FALSE-"] else 0,
+            heart_disease= 1 if values["-HEART_DISEASE_IN_TRUE-"] else 0 if values["-HEART_DISEASE_IN_FALSE-"] else 0,
+            residence_type= 0 if values["-RESIDENCE_IN_URBAN-"] else 1,
+            smoking_status= 0 if values["-SMOKING_IN_NEVER-"] else 3 if values["-SMOKING_IN_UNKNOWN-"] else
+            1 if values["-SMOKING_IN_FORMELY-"] else 2,
             triage = 0
             )
         
