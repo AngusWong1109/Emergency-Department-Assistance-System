@@ -68,7 +68,6 @@ class ai_model:
         prediction = np.argmax(prediction, axis=1)
         for x in range(len(self.listOfPatientObjects)):
             self.listOfPatientObjects[x].triage = prediction[x]
-        self.sortList()
         return prediction
 
 # Machine learning model example
