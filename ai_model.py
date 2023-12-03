@@ -2,12 +2,13 @@ from numpy import genfromtxt, shape, sort
 import numpy as np
 import tensorflow
 import data_class
+import os.path
 from data_class import data_class
-from tensorflow.python.keras.models import Sequential
-from tensorflow.python.keras.layers import Dense
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
 from tensorflow.keras.layers import BatchNormalization
 from tensorflow.keras import initializers
-from tensorflow.python.keras.optimizers import adam_v2
+from tensorflow.keras import optimizers
 from tensorflow.keras.layers import Dropout
 
 class ai_model:
@@ -22,7 +23,10 @@ class ai_model:
         self.train_x = self.train_x[:, 1:-1]
         self.train_y = data[0:self.train_size]
         self.train_y = self.train_y[:, -1]
-        self.model = self.createModel()
+        if os.path.isfile('model.h5'):
+            self.model = tensorflow.keras.models.load_model('model.h5')
+        else:
+            self.model = self.createModel()
         self.listOfNumpyPatients = []
         self.listOfPatientObjects = []
 
@@ -45,12 +49,12 @@ class ai_model:
         model.add(BatchNormalization())
         model.add(Dropout(dropoutConstant))
         model.add(Dense(4, activation='softmax', kernel_regularizer='l2'))
-        adamOpti = adam_v2.Adam(learning_rate=0.0002)
         model.compile(loss='sparse_categorical_crossentropy',
-                        optimizer=adamOpti, metrics=['accuracy'])
+                        optimizer=tensorflow.optimizers.Adam(learning_rate=0.0002), metrics=['accuracy'])
         model.fit(self.train_x, self.train_y, epochs=300,
                     batch_size=256)
         _, accuracy = model.evaluate(self.train_x, self.train_y)
+        model.save('model.h5')
         return model
 
     # Sort list of patients
