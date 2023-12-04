@@ -3,6 +3,7 @@ tensorflow-estimator==2.12.0
 tensorflow-intel==2.12.0
 tensorflow-io-gcs-filesystem==0.31.0
 numpy==1.23.5
+pysimplegui==4.60.5
 
 Tested on Python 3.9.11. Make sure to install the above dependencies with the correct version before running the code.
 Dependencies can be installed by running `pip install <dependency>` in the terminal.
