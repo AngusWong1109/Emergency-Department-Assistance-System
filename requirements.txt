@@ -3,4 +3,21 @@ tensorflow-estimator==2.12.0
 tensorflow-intel==2.12.0
 tensorflow-io-gcs-filesystem==0.31.0
 numpy==1.23.5
-python==3.9.11
+
+Tested on Python 3.9.11. Make sure to install the above dependencies with the correct version before running the code.
+Dependencies can be installed by running `pip install <dependency>` in the terminal.
+The dataset can be found here: https://www.kaggle.com/datasets/hossamahmedaly/patient-priority-classification/data
+The strings in the dataset need to be changed to integer, which can done by manually replacing the strings to integer in the csv file.
+The values to be changed are:
+Urban = 0
+Rural = 1
+never smoked = 0
+formerly smoked = 1
+smokes = 2
+Unknown = 3
+green = 0
+yellow = 1
+orange = 2
+red = 3
+
+After this, you can run the program by running main.py
