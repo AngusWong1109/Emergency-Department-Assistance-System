@@ -1,8 +1,6 @@
-# SFU CMPT 340 Project Template -- Replace with project title
-This repository is a template for your CMPT 340 course project.
-Replace the title with your project title, and **add a snappy acronym that people remember (mnemonic)**.
+# Emergency Department Assistance System (EDAS)
 
-Add a 1-2 line summary of your project here.
+This is an assistance system in tend to reduce emergency system waiting time.
 
 ## Important Links
 
@@ -79,7 +77,7 @@ conda activate amazing
 python evaluate.py --epochs=10 --data=/in/put/dir
 ```
 Data can be found at ...
-Output will be saved in ...
+Output will be saved in `Result.csv`
 
 <a name="guide"></a>
 ## 4. Guidance
