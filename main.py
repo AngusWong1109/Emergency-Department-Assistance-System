@@ -2,6 +2,8 @@ import PySimpleGUI as sg
 import data_class  # Import data class module
 import ai_model    # Import AI Model
 
+global_id = 0
+
 PROJECT_NAME = "Project 11"
 ADD_PATIENT = "Add more patient"
 SUBMIT = "Submit"
@@ -184,8 +186,10 @@ while True:
             residence_type= 0 if values["-RESIDENCE_IN_URBAN-"] else 1,
             smoking_status= 0 if values["-SMOKING_IN_NEVER-"] else 3 if values["-SMOKING_IN_UNKNOWN-"] else
             1 if values["-SMOKING_IN_FORMELY-"] else 2,
-            triage = 0
+            triage = 0,
+            id = 0
             )
+        global_id += 1
         
         # Need to confiure tensorflow and keras
         # Insert the patient into the list in ai_model
@@ -221,8 +225,10 @@ while True:
             residence_type= 0 if values["-RESIDENCE_IN_URBAN-"] else 1,
             smoking_status= 0 if values["-SMOKING_IN_NEVER-"] else 3 if values["-SMOKING_IN_UNKNOWN-"] else
             1 if values["-SMOKING_IN_FORMELY-"] else 2,
-            triage = 0
+            triage = 0,
+            id = global_id
             )
+        global_id += 1
         
         # Print all attributes of the patient instance
         print("Patient attributes:")
@@ -243,6 +249,7 @@ while True:
         print(f"Residence Type: {patient.residence_type}")
         print(f"Smoking Status: {patient.smoking_status}")
         print(f"Triage: {patient.triage}")
+        print(f"ID: {patient.id}")
 
         
         

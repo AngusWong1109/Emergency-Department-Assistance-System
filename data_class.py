@@ -1,7 +1,8 @@
 import numpy as np
 
 class data_class:
-    def __init__(self, age, gender, chest_pain, blood_pressure, cholesterol, max_heart_rate, exercise_angina, plasma_glucose, skin_thickness, insulin, bmi, diabetes_pedigree, hypertension, heart_disease, residence_type, smoking_status, triage):
+    id = 0
+    def __init__(self, age, gender, chest_pain, blood_pressure, cholesterol, max_heart_rate, exercise_angina, plasma_glucose, skin_thickness, insulin, bmi, diabetes_pedigree, hypertension, heart_disease, residence_type, smoking_status, triage, id):
         self.age = age
         self.gender = gender
         self.chest_pain = chest_pain
@@ -19,6 +20,7 @@ class data_class:
         self.residence_type = residence_type
         self.smoking_status = smoking_status
         self.triage = triage
+        self.id = id
     def to_np_arr(self):
         arr = []
         arr.append(self.age)
