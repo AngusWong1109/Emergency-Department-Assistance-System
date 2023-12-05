@@ -4,7 +4,7 @@ This is an assistance system in tend to reduce emergency system waiting time.
 
 ## Important Links
 
-| [Timesheet](https://1sfu-my.sharepoint.com/:x:/g/personal/kabhishe_sfu_ca/EWgOXA6BkgVHujLsXAvhKeQB6JUueckFF2wvCSLBlXX4Vg) | [Slack channel](https://sfucmpt340fall2023.slack.com/archives/C05TBD6P5MK) | [Project report](https://google.com) |
+| [Timesheet](https://1sfu-my.sharepoint.com/:x:/g/personal/kabhishe_sfu_ca/EWgOXA6BkgVHujLsXAvhKeQB6JUueckFF2wvCSLBlXX4Vg) | [Slack channel](https://sfucmpt340fall2023.slack.com/archives/C05TBD6P5MK) | [Project report](https://www.overleaf.com/8473631261trksfhcdrhyh) |
 |-----------|---------------|-------------------------|
 
 
