@@ -73,7 +73,7 @@ class ai_model:
     def insertPatient(self, patient):
         self.listOfPatientObjects.append(patient)
         self.listOfNumpyPatients.append(patient.to_np_arr())
-    
+        
     # Predict on data, use this once all the patients have been inserted
     def predict_on_data(self):
         prediction = self.model.predict(np.asarray(self.listOfNumpyPatients))

@@ -3,8 +3,6 @@ import data_class  # Import data class module
 import ai_model    # Import AI Model
 from test import identify_tests
 
-global_id = 0
-
 PROJECT_NAME = "Project 11"
 ADD_PATIENT = "Add more patient"
 SUBMIT = "Submit"
@@ -165,8 +163,6 @@ ai = ai_model.ai_model()
 while True:
     event, values = window.read()
     if event == CANCEL or event == sg.WIN_CLOSED:
-        ai.sortList
-        identify_tests(ai.listOfPatientObjects)
         break        
     elif event == SUBMIT:
         print("Submit pressed")
@@ -190,20 +186,23 @@ while True:
             smoking_status= 0 if values["-SMOKING_IN_NEVER-"] else 3 if values["-SMOKING_IN_UNKNOWN-"] else
             1 if values["-SMOKING_IN_FORMELY-"] else 2,
             triage = 0,
-            id = 0
+            id = 1
             )
-        global_id += 1
         
         # Need to confiure tensorflow and keras
         # Insert the patient into the list in ai_model
         ai.insertPatient(patient)
-
+        
         # Use the created model to predict on data
         predictions = ai.predict_on_data()
 
         # Print predicted triage values
         print("Predicted Triage Values:", predictions)
         # Need to confiure tensorflow and keras until here
+
+        
+        ai.sortList
+        identify_tests(ai.listOfPatientObjects)
         
     elif event == ADD_PATIENT:
         print("Add more Patient pressed")
@@ -229,9 +228,8 @@ while True:
             smoking_status= 0 if values["-SMOKING_IN_NEVER-"] else 3 if values["-SMOKING_IN_UNKNOWN-"] else
             1 if values["-SMOKING_IN_FORMELY-"] else 2,
             triage = 0,
-            id = global_id
+            id = 1
             )
-        global_id += 1
         
         # Print all attributes of the patient instance
         print("Patient attributes:")
@@ -252,7 +250,6 @@ while True:
         print(f"Residence Type: {patient.residence_type}")
         print(f"Smoking Status: {patient.smoking_status}")
         print(f"Triage: {patient.triage}")
-        print(f"ID: {patient.id}")
 
         
         
