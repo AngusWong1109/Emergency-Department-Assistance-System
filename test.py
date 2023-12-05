@@ -7,7 +7,7 @@ def identify_tests (object):
         Test_list = [str(i)]
 
         # CHECK CHEST PAIN, HEART RATE AND ANGINA IN ONE CONDITION
-        if object[i].chestpain > 2 | object[i].maxheartrate > (220-object[i].age) | object[i].angina == 1:
+        if object[i].chest_pain > 2 | object[i].max_heart_rate > (220-object[i].age) | object[i].angina == 1:
             Test_list.append(", electrocardiogram (ECG)")
         
         if object[i].cholesterol > 240:
@@ -33,7 +33,7 @@ def identify_tests (object):
             if ", blood test" not in Test_list:
                 Test_list.append(", blood test")
 
-        if object[i].heartdisease == 1:
+        if object[i].heart_disease == 1:
             if ", electrocardiogram (ECG)" not in Test_list:
                 Test_list.append(", electrocardiogram (ECG)")
     
