@@ -1,6 +1,7 @@
 import PySimpleGUI as sg
 import data_class  # Import data class module
 import ai_model    # Import AI Model
+from test import identify_tests
 
 PROJECT_NAME = "Project 11"
 ADD_PATIENT = "Add more patient"
@@ -162,6 +163,8 @@ ai = ai_model.ai_model()
 while True:
     event, values = window.read()
     if event == CANCEL or event == sg.WIN_CLOSED:
+        ai.sortList
+        identify_tests(ai.listOfPatientObjects)
         break        
     elif event == SUBMIT:
         print("Submit pressed")
