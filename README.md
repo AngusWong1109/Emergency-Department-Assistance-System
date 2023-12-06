@@ -45,11 +45,14 @@ Explain briefly what files are found where
 
 ```bash
 repository
-├── src                          ## source code of the package itself
-├── scripts                      ## scripts, if needed
-├── docs                         ## If needed, documentation   
 ├── README.md                    ## You are here
-├── requirements.yml             ## If you use conda
+├── requirements.txt             ## Installation Steps
+├── main.py                      ## Main file
+├── model.h5                     ## Trained AI model
+├── test.py                      ## CSV saving
+├── data_class.py                ## Patient information
+├── ai_model.py                  ## AI Model
+├── Results.csv                  ## Stored patient information
 ```
 
 <a name="installation"></a>
