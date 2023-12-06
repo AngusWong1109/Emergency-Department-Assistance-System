@@ -40,6 +40,7 @@ repository
 ├── data_class.py                ## Patient information
 ├── ai_model.py                  ## AI Model
 ├── Results.csv                  ## Stored patient information
+├── CMPT340 Video.mp4            ## Video demo
 ```
 
 <a name="installation"></a>
