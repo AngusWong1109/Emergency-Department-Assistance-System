@@ -18,26 +18,12 @@ Record a short video (1:40 - 2 minutes maximum) or gif or a simple screen record
 
 
 ## Table of Contents
-1. [Demo](#demo)
 
-2. [Installation](#installation)
+1. [Installation](#installation)
 
-3. [Reproducing this project](#repro)
+2. [Reproducing this project](#repro)
 
-4. [Guidance](#guide)
-
-
-<a name="demo"></a>
-## 1. Example demo
-
-A minimal example to showcase your work
-
-```python
-from amazing import amazingexample
-imgs = amazingexample.demo()
-for img in imgs:
-    view(img)
-```
+3. [Guidance](#guide)
 
 ### What to find where
 
