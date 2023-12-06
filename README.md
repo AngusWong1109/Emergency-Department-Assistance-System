@@ -56,27 +56,12 @@ repository
 
 ## 2. Installation
 
-Provide sufficient instructions to reproduce and install your project. 
-Provide _exact_ versions, test on CSIL or reference workstations.
-
-```bash
-git clone $THISREPO
-cd $THISREPO
-conda env create -f requirements.yml
-conda activate amazing
-```
+For installation steps, read requirement.txt.
 
 <a name="repro"></a>
 ## 3. Reproduction
-Demonstrate how your work can be reproduced, e.g. the results in your report.
-```bash
-mkdir tmp && cd tmp
-wget https://yourstorageisourbusiness.com/dataset.zip
-unzip dataset.zip
-conda activate amazing
-python evaluate.py --epochs=10 --data=/in/put/dir
-```
-Data can be found at ...
+Run main.py to start program.
+Dataset can be found at https://www.kaggle.com/datasets/hossamahmedaly/patient-priority-classification/data
 Output will be saved in `Result.csv`
 
 <a name="guide"></a>
