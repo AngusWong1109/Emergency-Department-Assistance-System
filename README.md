@@ -43,18 +43,18 @@ repository
 
 <a name="installation"></a>
 
-## 2. Installation
+## 1. Installation
 
 For installation steps, read requirement.txt.
 
 <a name="repro"></a>
-## 3. Reproduction
+## 2. Reproduction
 Run main.py to start program.
 Dataset can be found at https://www.kaggle.com/datasets/hossamahmedaly/patient-priority-classification/data
 Output will be saved in `Result.csv`
 
 <a name="guide"></a>
-## 4. Guidance
+## 3. Guidance
 
 - Use [git](https://git-scm.com/book/en/v2)
     - Do NOT use history re-editing (rebase)
